@@ -9,11 +9,11 @@ load_data <- function() {
                      sep=";",
                      colClasses=c("character", "character", rep("numeric",7)),
                      na="?")
-    @Using the function for Time Conversion
+    #Using the function for Time Conversion
 
     dt$Time <- strptime(paste(dt$Date, dt$Time), "%d/%m/%Y %H:%M:%S")
     dt$Date <- as.Date(dt$Date, "%d/%m/%Y")
-    # only use data from the dates 2007-02-01 and 2007-02-02
+    #Setting Date Ranges
     dates <- as.Date(c("2007-02-01", "2007-02-02"), "%Y-%m-%d")
     dt <- subset(dt, Date %in% dates)
     
